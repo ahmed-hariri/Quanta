@@ -54,7 +54,7 @@ export default function Header() {
 
     return (
         <header
-            className={`w-full px-6 sm:px-11 pt-1 sm:pt-4 flex flex-col duration-300
+            className={`w-full px-6 sm:px-11 pt-1 sm:pt-4 flex flex-col duration-300 z-50
       ${menuStatus ? "bg-[#ff6200] text-white" : "text-[#ff6200]"} font-bold fixed`}
         >
             {/* Top */}
