@@ -9,12 +9,19 @@
 
 /* Changer la couleur de texte et de fond quand on sélectionne */
 ::selection {
-    background-color: #ff6200; /* couleur de fond que tu veux */
-    color: #ffffff; /* couleur du texte sélectionné */
+    background-color: #ff6200;
+    /* couleur de fond que tu veux */
+    color: #ffffff;
+    /* couleur du texte sélectionné */
 }
 
 /* Optionnel pour Firefox */
 ::-moz-selection {
     background-color: #ff6200;
     color: #ffffff;
+}
+
+/* Ajoute la perspective pour l’effet 3D */
+.perspective {
+    perspective: 1000px;
 }
