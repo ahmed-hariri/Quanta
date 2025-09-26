@@ -5,6 +5,8 @@
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+    letter-spacing: -0.05em;
+    line-height: 1em;
 }
 
 /* Changer la couleur de texte et de fond quand on sélectionne */

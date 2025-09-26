@@ -22,7 +22,9 @@ export default function Achievements() {
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.8 }}
                             className="flex flex-col gap-2">
-                            <h1 className="text-[52px] lg:text-[70px] xl:text-[85px] leading-14 lg:leading-normal">NUMBERS WON&apos;T LIE</h1>
+                            <h1 className="text-[52px] lg:text-[70px] xl:text-[85px] leading-14 lg:leading-normal">
+                                NUMBERS WON&apos;T LIE
+                            </h1>
                             <p className="w-[75%] lg:w-[550px] xl:w-[630px] text-[#4f4f4f] font-[500] text-[18px] xl:text-[20px] leading-6 lg:leading-normal">
                                 Delivering record-breaking results backed by powerful metrics
                                 and real impact—because great design drives real growth.

@@ -10,7 +10,7 @@ export default function Hero() {
     const [showArrow, setShowArrow] = useState<boolean>(false);
 
     return <>
-        <section className="lg:h-[792px] relative">
+        <section className="lg:h-[800px] relative">
             <div className="w-full h-full flex justify-between absolute -z-20 gap-[15px] xl:gap-0">
                 <div className="w-[29.6%] h-full border border-[#d2d2d283] lg:border-[#d2d2d2]"></div>
                 <div className="w-[39.2%] h-full border border-[#d2d2d283] lg:border-[#d2d2d2]"></div>
@@ -19,7 +19,7 @@ export default function Hero() {
 
             <div className="h-full flex flex-col lg:flex-row justify-start lg:justify-between gap-20 sm:gap-0">
                 {/* <!-- Time and sub title --> */}
-                <div className="order-2 lg:order-1 w-full lg:w-[29.6%] flex flex-col justify-end lg:items-end pl-5 lg:pl-0 pr-5 lg:pr-2 xl:pr-10 pb-10 lg:pb-16">
+                <div className="order-2 lg:order-1 w-full lg:w-[29.6%] flex flex-col justify-end lg:items-end pl-5 lg:pl-0 pr-5 lg:pr-2 pb-10 lg:pb-[70px]">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export default function Hero() {
                 </div>
 
                 {/* <!-- Title --> */}
-                <div className="order-1 lg:order-2 w-full lg:w-[39.2%] flex flex-col items-center pt-52 lg:pt-48 gap-10 lg:mt-0">
+                <div className="order-1 lg:order-2 w-full lg:w-[39.2%] flex flex-col items-center pt-52 gap-10">
                     {/* Animation des titres */}
                     <motion.div
                         className="flex flex-col items-center gap-2"
@@ -89,7 +89,7 @@ export default function Hero() {
                rgba(255, 98, 0, 0.59) 0px 4.46px 4.46px -2.81px,\
                rgba(255, 98, 0, 0.25) 0px 14px 14px -3.75px",
                             }}
-                            className="bg-[#ff6200] text-white rounded-full px-4 lg:px-5 py-[12px] lg:py-[13px] flex items-center gap-3 duration-300 font-semibold text-sm lg:text-base"
+                            className="bg-[#ff6200] text-white rounded-full px-4 lg:px-5 py-[12px] lg:py-[16px] flex items-center gap-3 duration-300 font-semibold text-sm lg:text-base"
                             onMouseEnter={() => setShowArrow(true)}
                             onMouseLeave={() => setShowArrow(false)}
                         >
@@ -112,7 +112,7 @@ export default function Hero() {
                 </div>
 
                 {/* <!-- Clients --> */}
-                <div className="order-3 lg:order-3 w-full lg:w-[29.6%] flex flex-col justify-end items-end lg:items-start pr-5 lg:pr-0 lg:pl-2 xl:pl-10 pb-10 lg:pb-16">
+                <div className="order-3 lg:order-3 w-full lg:w-[29.6%] flex flex-col justify-end items-end lg:items-start pr-5 lg:pr-0 lg:pl-2 xl:pl-8 pb-10 lg:pb-[75px]">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}

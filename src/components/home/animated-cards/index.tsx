@@ -28,7 +28,7 @@ export default function AnimatedCards() {
             className="perspective"
             style={{ y: smoothY }}
         >
-            <div className="flex justify-center p-10 transform -rotate-3 -rotate-y-[4deg] rotate-x-[22deg] gap-[10px]">
+            <div className="flex justify-center p-10 transform -rotate-3 -rotate-y-[4deg] rotate-x-[24deg] gap-[10px]">
                 {/* carrousel horizontal infini */}
                 <motion.div
                     className="flex gap-[10px]"
@@ -41,7 +41,7 @@ export default function AnimatedCards() {
                         return (
                             <div key={i}>
                                 <div
-                                    className="w-[400px] h-[551px] rounded-lg bg-cover bg-center shadow-2xl"
+                                    className="w-[390px] h-[551px] rounded-lg bg-cover bg-center"
                                     style={{ backgroundImage: `url(scroll-cards/card-${index}.avif)` }}
                                 />
                             </div>
