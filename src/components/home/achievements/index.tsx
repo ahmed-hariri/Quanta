@@ -31,39 +31,41 @@ export default function Achievements() {
 
                         <div className="flex lg:items-center flex-col lg:flex-row gap-16 lg:gap-6">
                             {data.map((item, index) => (
-                                <div key={index} className="flex flex-col gap-[30px] pl-4 border-l border-gray-100 lg:w-[1020px] overflow-hidden">
-                                    <motion.h1
-                                        initial={{ opacity: 0, x: -500 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ duration: 0.8, ease: "easeOut" }}
-                                        viewport={{ once: true }}
-                                        className="text-7xl"
-                                    >
-                                        <CountUp
-                                            from={5}
-                                            to={item.info}
-                                            separator=","
-                                            direction="up"
-                                            duration={1}
-                                            className="count-up-text"
-                                        />
-                                        {item.title.startsWith("User")
-                                            ? "M+"
-                                            : item.title.startsWith("Projects")
-                                                ? "+"
-                                                : "%"}
-                                    </motion.h1>
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 100 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-                                        viewport={{ once: true }}
-                                    >
-                                        <h2 className="lg:text-[30px] xl:text-[34px]">{item.title}</h2>
-                                        <p className="text-[18px] text-[#8c8c8c] w-[220px]">
-                                            {item.subTitle}
-                                        </p>
-                                    </motion.div>
+                                <div key={index} className="pl-4 border-l border-gray-100 lg:w-[1020px] overflow-hidden">
+                                    <div className="flex flex-col gap-[30px]">
+                                        <motion.h1
+                                            initial={{ opacity: 0, x: -80 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.8, ease: "easeOut" }}
+                                            viewport={{ once: true, amount: 0.1 }}
+                                            className="text-7xl"
+                                        >
+                                            <CountUp
+                                                from={5}
+                                                to={item.info}
+                                                separator=","
+                                                direction="up"
+                                                duration={1}
+                                                className="count-up-text"
+                                            />
+                                            {item.title.startsWith("User")
+                                                ? "M+"
+                                                : item.title.startsWith("Projects")
+                                                    ? "+"
+                                                    : "%"}
+                                        </motion.h1>
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 50 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+                                            viewport={{ once: true, amount: 0.1 }}
+                                        >
+                                            <h2 className="text-[30px] xl:text-[34px]">{item.title}</h2>
+                                            <p className="text-[18px] text-[#8c8c8c] w-[220px]">
+                                                {item.subTitle}
+                                            </p>
+                                        </motion.div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
