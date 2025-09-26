@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 export default function SlideSection() {
-    const techStack = ["jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke", "jkejfkefjke", "ejfkejfkjke"]
+    const techStack = ["Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta"]
 
     return <>
         <section className="w-full flex justify-center items-center mt-10">

@@ -9,16 +9,14 @@ export default function AnimatedCards() {
     useEffect(() => {
         const w = window.innerWidth;
         if (w < 768) setStartY(120);
-        else if (w < 1024) setStartY(300);
-        else if (w < 1536) setStartY(300);
-        else setStartY(400);
+        else setStartY(200);
     }, []);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
-        offset: ["start end", "end start"],
+        offset: ["start end", "end end"],
     });
 
-    const rawY = useTransform(scrollYProgress, [0, 1], [startY, -450]);
+    const rawY = useTransform(scrollYProgress, [0, 1], [startY, -80]);
     const smoothY = useSpring(rawY, { stiffness: 400, damping: 70, mass: 1 });
     // White top shadow
     const topShadow = "0 -30px 20px 10px rgba(255,255,255,0.5)";
@@ -30,7 +28,6 @@ export default function AnimatedCards() {
             className="perspective"
             style={{ y: smoothY }}
         >
-
             <div className="flex justify-center p-10 transform -rotate-3 -rotate-y-[4deg] rotate-x-[22deg] gap-[10px]">
                 {/* carrousel horizontal infini */}
                 <motion.div
@@ -39,7 +36,7 @@ export default function AnimatedCards() {
                     animate={{ x: ["0%", "-70%"] }}
                     transition={{ repeat: Infinity, duration: 180, ease: "linear" }}
                 >
-                    {Array.from({ length: 28 }).map((_, i) => {
+                    {Array.from({ length: 30 }).map((_, i) => {
                         const index = (i % 6) + 1; // prend l'image 1 à 6 et répète
                         return (
                             <div key={i}>
