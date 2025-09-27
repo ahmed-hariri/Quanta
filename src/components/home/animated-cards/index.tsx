@@ -36,7 +36,7 @@ export default function AnimatedCards() {
                     animate={{ x: ["0%", "-70%"] }}
                     transition={{ repeat: Infinity, duration: 180, ease: "linear" }}
                 >
-                    {Array.from({ length: 30 }).map((_, i) => {
+                    {Array.from({ length: 40 }).map((_, i) => {
                         const index = (i % 6) + 1; // prend l'image 1 à 6 et répète
                         return (
                             <div key={i}>

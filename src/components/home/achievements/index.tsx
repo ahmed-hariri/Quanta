@@ -11,7 +11,7 @@ export default function Achievements() {
 
     return (
         <>
-            <section className="px-4 xl:px-0 my-16 lg:my-24 flex justify-center">
+            <section className="px-4 xl:px-0 lg:mt-24 flex justify-center">
                 <div className="w-full lg:max-w-[1220px] flex flex-col gap-7">
                     <SectionTitle title="Achievements" showYear={true} />
 
