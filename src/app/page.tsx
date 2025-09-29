@@ -3,6 +3,7 @@
 import Achievements from "@/components/home/achievements";
 import AnimatedCards from "@/components/home/animated-cards";
 import Banner from "@/components/home/banner";
+import Benefits from "@/components/home/benefits";
 import Hero from "@/components/home/hero";
 import SlideSection from "@/components/home/picture-slide";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <AnimatedCards />
       <Achievements />
       <Banner />
+      <Benefits />
     </div>
   </>
 }
