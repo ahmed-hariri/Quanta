@@ -6,15 +6,15 @@ import { useState } from "react";
 export default function Benefits() {
     const [isHover, setIsHover] = useState<null | number>(0);
 
-    const cards: { icon: string, title: string, description: string }[] = [
-        { icon: "", title: "Holistic expertise", description: "We bring a multidisciplinary approach to design, ensuring every project benefits from our broad expertise" },
-        { icon: "", title: "Selective Partnerships", description: "We collaborate with a limited number of clients to provide dedicated focus and top-tier quality" },
-        { icon: "", title: "Attention to detail", description: "From concept to execution, we meticulously refine every element to create seamless user experiences" }
+    const cards: { title: string, description: string }[] = [
+        { title: "Holistic expertise", description: "We bring a multidisciplinary approach to design, ensuring every project benefits from our broad expertise" },
+        { title: "Selective Partnerships", description: "We collaborate with a limited number of clients to provide dedicated focus and top-tier quality" },
+        { title: "Attention to detail", description: "From concept to execution, we meticulously refine every element to create seamless user experiences" }
     ]
 
     return (
         <>
-            <section className="px-4 xl:px-0 flex justify-center my-20">
+            <section className="px-4 xl:px-0 flex justify-center mt-20">
                 <div className="w-full lg:max-w-[1220px] flex flex-col gap-7">
                     <SectionTitle title="Benefits" showYear={true} />
 

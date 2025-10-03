@@ -6,6 +6,7 @@ import Banner from "@/components/home/banner";
 import Benefits from "@/components/home/benefits";
 import Hero from "@/components/home/hero";
 import SlideSection from "@/components/home/picture-slide";
+import Projects from "@/components/home/projects";
 
 export default function Home() {
   return <>
@@ -17,5 +18,6 @@ export default function Home() {
       <Banner />
       <Benefits />
     </div>
+    <Projects />
   </>
 }
