@@ -12,6 +12,7 @@
     "@fontsource/inter": "^5.2.8",
     "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^12.23.12",
+    "lucide-react": "^0.544.0",
     "motion": "^12.23.22",
     "next": "15.5.2",
     "react": "19.1.0",
