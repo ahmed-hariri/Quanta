@@ -8,6 +8,7 @@ import Benefits from "@/components/home/benefits";
 import Hero from "@/components/home/hero";
 import SlideSection from "@/components/home/picture-slide";
 import Projects from "@/components/home/projects";
+import Process from "@/components/home/process";
 
 export default function Home() {
   return <>
@@ -21,5 +22,6 @@ export default function Home() {
     </div>
     <Projects />
     <Banner2 />
+    <Process />
   </>
 }

@@ -6,11 +6,12 @@ import { FaRegCopyright } from "react-icons/fa6";
 interface SectionTitleProps {
     title: string;
     showYear?: boolean;
+    border?: boolean;
 }
 
-export default function  SectionTitle({ title, showYear = false }: SectionTitleProps) {
+export default function SectionTitle({ title, showYear = false, border = true }: SectionTitleProps) {
     return (
-        <div className={`py-7 border-b border-gray-300 flex ${showYear ? "justify-between" : "justify-center"} items-center uppercase`}>
+        <div className={`py-7 ${border && "border-b border-gray-300"} flex ${showYear ? "justify-between" : "justify-center"} items-center uppercase`}>
             {/* ----- Bloc Titre ----- */}
             <h1 className="flex items-center gap-2 overflow-hidden">
                 <span className="text-[#ff6200]">[</span>

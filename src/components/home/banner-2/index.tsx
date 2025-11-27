@@ -45,6 +45,5 @@ export default function Banner2() {
                 </div>
             </div>
         </section>
-
     );
 }
