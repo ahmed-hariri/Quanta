@@ -9,6 +9,7 @@ import Hero from "@/components/home/hero";
 import SlideSection from "@/components/home/picture-slide";
 import Projects from "@/components/home/projects";
 import Process from "@/components/home/process";
+import Testimonials from "@/components/home/testimonials";
 
 export default function Home() {
   return <>
@@ -22,6 +23,9 @@ export default function Home() {
     </div>
     <Projects />
     <Banner2 />
-    <Process />
+    <div className="relative">
+      <Process />
+      <Testimonials />
+    </div>
   </>
 }
