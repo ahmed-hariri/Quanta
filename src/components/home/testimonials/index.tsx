@@ -56,7 +56,7 @@ const testimonials: Testimonial[] = [
 
 export default function Testimonials() {
     return (
-        <section className="w-full flex flex-col items-center px-4 xl:px-0 pt-20 lg:pt-32 sticky top-0 bg-white">
+        <section className="w-full flex flex-col items-center px-4 xl:px-0 p-20 lg:py-32 sticky top-0 bg-white">
             <div className="w-full lg:max-w-[1220px] flex flex-col items-center gap-7">
                 <SectionTitle title="TESTIMONIALS" showYear={false} />
 

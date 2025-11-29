@@ -7,11 +7,12 @@ interface SectionTitleProps {
     title: string;
     showYear?: boolean;
     border?: boolean;
+    className?: string;
 }
 
-export default function SectionTitle({ title, showYear = false, border = true }: SectionTitleProps) {
+export default function SectionTitle({ title, showYear = false, border = true, className = "" }: SectionTitleProps) {
     return (
-        <div className={`py-7 w-full ${border && "border-b border-gray-300"} flex ${showYear ? "justify-between" : "justify-center"} items-center uppercase`}>
+        <div className={`py-7 ${border && "border-b border-gray-300"} flex ${showYear ? "justify-between" : "justify-center"} items-center uppercase`}>
             {/* ----- Bloc Titre ----- */}
             <h1 className="flex items-center gap-2 overflow-hidden">
                 <span className="text-[#ff6200]">[</span>
@@ -20,7 +21,7 @@ export default function SectionTitle({ title, showYear = false, border = true }:
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true, amount: 0.8 }}
                     transition={{ delay: 0.6, duration: 0.6, ease: easeOut }}
-                    className="text-[18px]"
+                    className={`text-[18px] ${className}`}
                 >
                     {title}
                 </motion.span>
