@@ -5,9 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 
 interface LinkButtonProps {
     marginTop?: boolean;
+    text? : string
 }
 
-export default function LinkButton({ marginTop = false }: LinkButtonProps) {
+export default function LinkButton({ marginTop = false , text = "Get started" }: LinkButtonProps) {
     const [showArrow, setShowArrow] = useState<boolean>(false);
     return <>
         <motion.div
@@ -29,7 +30,7 @@ export default function LinkButton({ marginTop = false }: LinkButtonProps) {
                 onMouseEnter={() => setShowArrow(true)}
                 onMouseLeave={() => setShowArrow(false)}
             >
-                <span>Get started</span>
+                <span>{text}</span>
                 <AnimatePresence>
                     {showArrow && (
                         <motion.span

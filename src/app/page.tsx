@@ -11,6 +11,7 @@ import Projects from "@/components/home/projects";
 import Process from "@/components/home/process";
 import Services from "@/components/home/services";
 import Testimonials from "@/components/home/testimonials";
+import About from "@/components/home/about ";
 
 export default function Home() {
   return <>
@@ -29,5 +30,6 @@ export default function Home() {
       <Testimonials />
     </div>
     <Services />
+    <About />
   </>
 }
