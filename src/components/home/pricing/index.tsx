@@ -68,7 +68,7 @@ export default function Pricing() {
     ];
 
     return (
-        <section className="px-4 xl:px-0 flex justify-center my-20">
+        <section className="px-4 xl:px-0 flex justify-center my-40">
             <div className="w-full lg:max-w-[1300px] flex flex-col items-center gap-7">
                 <SectionTitle title="Pricing" showYear={false} />
 
