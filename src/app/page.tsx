@@ -14,6 +14,7 @@ import Testimonials from "@/components/home/testimonials";
 import About from "@/components/home/about ";
 import Pricing from "@/components/home/pricing";
 import FAQ from "@/components/home/faq";
+import Blogs from "@/components/home/blogs";
 
 export default function Home() {
   return <>
@@ -35,5 +36,6 @@ export default function Home() {
     <About />
     <Pricing />
     <FAQ />
+    <Blogs />
   </>
 }
