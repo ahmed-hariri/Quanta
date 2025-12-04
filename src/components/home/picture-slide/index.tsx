@@ -18,10 +18,10 @@ export default function SlideSection() {
             >
                 <motion.ul
                     className="flex w-max gap-[60px] items-center text-[28px]"
-                    animate={{ x: ["0%", "-70%"] }}
-                    transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+                    animate={{ x: ["0%", "-33.33%"] }}
+                    transition={{ repeat: Infinity, duration: 20, ease: "linear", repeatType: "loop" }}
                 >
-                    {[...techStack, ...techStack].map((tech, index) => (
+                    {[...techStack, ...techStack, ...techStack].map((tech, index) => (
                         <li key={index} className="text-gray-500 whitespace-nowrap">
                             {tech}
                         </li>

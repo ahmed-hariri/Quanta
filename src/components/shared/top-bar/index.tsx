@@ -12,7 +12,7 @@ interface SectionTitleProps {
 
 export default function SectionTitle({ title, showYear = false, border = true, className = "" }: SectionTitleProps) {
     return (
-        <div className={`py-7 ${border && "border-b border-gray-300"} flex ${showYear ? "justify-between" : "justify-center"} items-center uppercase`}>
+        <div className={`w-full py-7 ${border && "border-b border-gray-300"} flex ${showYear ? "justify-between" : "justify-center"} items-center uppercase`}>
             {/* ----- Bloc Titre ----- */}
             <h1 className="flex items-center gap-2 overflow-hidden">
                 <span className="text-[#ff6200]">[</span>

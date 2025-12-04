@@ -12,6 +12,7 @@ import Process from "@/components/home/process";
 import Services from "@/components/home/services";
 import Testimonials from "@/components/home/testimonials";
 import About from "@/components/home/about ";
+import Pricing from "@/components/home/pricing";
 
 export default function Home() {
   return <>
@@ -31,5 +32,6 @@ export default function Home() {
     </div>
     <Services />
     <About />
+    <Pricing />
   </>
 }
