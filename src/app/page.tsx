@@ -15,6 +15,7 @@ import About from "@/components/home/about ";
 import Pricing from "@/components/home/pricing";
 import FAQ from "@/components/home/faq";
 import Blogs from "@/components/home/blogs";
+import CTA from "@/components/home/cta";
 
 export default function Home() {
   return <>
@@ -37,5 +38,6 @@ export default function Home() {
     <Pricing />
     <FAQ />
     <Blogs />
+    <CTA />
   </>
 }
