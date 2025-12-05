@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import Header from "@/components/shared/header";
+import Footer from "@/components/shared/footer";
 import LenisProvider from "@/provider/LenisProvider.tsx";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({
             {children}
           </LenisProvider>
         </main>
+        <Footer />
       </body>
     </html>
   );
