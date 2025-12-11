@@ -4,6 +4,11 @@ import { useEffect, useRef, useState } from "react";
 export default function AnimatedCards() {
     const sectionRef = useRef<HTMLDivElement | null>(null);
     const [startY, setStartY] = useState(200); // initial fallback
+    const slides = Array.from({ length: 20 }, (_, i) => (i % 6) + 1); // two copies for seamless loop
+    const cardWidth = 390;
+    const gap = 10;
+    const uniqueCount = 6;
+    const loopWidth = (cardWidth + gap) * uniqueCount; // distance to travel for one seamless loop
 
     // Determine starting Y position based on screen width (client-side only)
     useEffect(() => {
@@ -21,7 +26,6 @@ export default function AnimatedCards() {
     // White top shadow
     const topShadow = "0 -30px 20px 10px rgba(255,255,255,0.5)";
 
-
     return (
         <motion.section
             ref={sectionRef}
@@ -31,22 +35,23 @@ export default function AnimatedCards() {
             <div className="flex justify-center p-10 transform -rotate-3 -rotate-y-[4deg] rotate-x-[24deg] gap-[10px]">
                 {/* carrousel horizontal infini */}
                 <motion.div
-                    className="flex gap-[10px]"
+                    className="flex gap-[10px] min-w-max"
                     style={{ boxShadow: topShadow }}
-                    animate={{ x: ["0%", "-70%"] }}
-                    transition={{ repeat: Infinity, duration: 180, ease: "linear" }}
+                    animate={{ x: [0, -loopWidth] }} // travel one full loop width
+                    transition={{ repeat: Infinity, repeatType: "loop", duration: 40, ease: "linear" }}
                 >
-                    {Array.from({ length: 40 }).map((_, i) => {
-                        const index = (i % 6) + 1; // prend l'image 1 à 6 et répète
-                        return (
-                            <div key={i}>
-                                <div
-                                    className="w-[390px] h-[551px] rounded-lg bg-cover bg-center"
-                                    style={{ backgroundImage: `url(scroll-cards/card-${index}.avif)` }}
-                                />
-                            </div>
-                        );
-                    })}
+                    {slides.map((index, i) => (
+                        <div key={i}>
+                            <div
+                                className="h-[551px] flex-shrink-0 rounded-lg bg-cover bg-center"
+                                style={{
+                                    width: `${cardWidth}px`,
+                                    marginRight: `${gap}px`,
+                                    backgroundImage: `url(scroll-cards/card-${index}.avif)`,
+                                }}
+                            />
+                        </div>
+                    ))}
                 </motion.div>
             </div>
         </motion.section>

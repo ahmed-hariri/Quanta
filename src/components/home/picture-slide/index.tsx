@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function SlideSection() {
-    const techStack = ["Quanta", "Quanta", "Quanta", "Quanta", "Quanta", "Quanta"];
+    const logos = ["1.svg", "2.svg", "3.svg", "4.svg", "5.svg"];
 
     return (
         <section className="w-full flex justify-center items-center mt-10 overflow-hidden">
@@ -13,19 +14,29 @@ export default function SlideSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: 40 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: [0.42, 0, 0.58, 1] }}
+                transition={{ duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
                 className="w-[92%] h-full flex items-center"
             >
                 <motion.ul
-                    className="flex w-max gap-[60px] items-center text-[28px]"
+                    className="flex w-max gap-[60px] items-center"
                     animate={{ x: ["0%", "-33.33%"] }}
                     transition={{ repeat: Infinity, duration: 20, ease: "linear", repeatType: "loop" }}
                 >
-                    {[...techStack, ...techStack, ...techStack].map((tech, index) => (
-                        <li key={index} className="text-gray-500 whitespace-nowrap">
-                            {tech}
-                        </li>
-                    ))}
+                    {[...logos, ...logos, ...logos].map((logo, index) => {
+                        const src = `/logos/${logo}`;
+                        return (
+                            <Image
+                                key={index}
+                                src={src}
+                                alt={`logo-${index % logos.length}`}
+                                width={25}
+                                height={25}
+                                className="h-auto w-auto scale-75 grayscale"
+                                loading="lazy"
+                                priority={false}
+                            />
+                        );
+                    })}
                 </motion.ul>
             </motion.div>
         </section>

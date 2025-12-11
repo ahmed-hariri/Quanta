@@ -3,6 +3,9 @@ import SectionTitle from "@/components/shared/top-bar";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const BLUR_DATA_URL =
+    "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+
 export default function About() {
     return (
         <>
@@ -43,6 +46,9 @@ export default function About() {
                                     alt="team"
                                     fill
                                     className="object-cover rounded-xl"
+                                    placeholder="blur"
+                                    blurDataURL={BLUR_DATA_URL}
+                                    sizes="100vw"
                                 />
                             </motion.div>
                         </div>

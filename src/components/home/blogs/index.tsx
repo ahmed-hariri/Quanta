@@ -4,6 +4,9 @@ import SectionTitle from "@/components/shared/top-bar";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const BLUR_DATA_URL =
+    "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+
 interface BlogPost {
     id: number;
     image: string;
@@ -67,7 +70,15 @@ export default function Blogs() {
                         >
                             {/* Image */}
                             <div className="w-full h-[312px] bg-gray-100 rounded-lg overflow-hidden relative">
-                                <Image src={blogPosts[0].image} alt={blogPosts[0].title} fill className="object-cover" />
+                                <Image
+                                    src={blogPosts[0].image}
+                                    alt={blogPosts[0].title}
+                                    fill
+                                    className="object-cover"
+                                    placeholder="blur"
+                                    blurDataURL={BLUR_DATA_URL}
+                                    sizes="(min-width: 1024px) 600px, 90vw"
+                                />
                             </div>
 
                             {/* Date */}
@@ -94,7 +105,15 @@ export default function Blogs() {
                                 >
                                     {/* Image */}
                                     <div className="w-full h-[210px] bg-gray-100 lg:h-[240px] rounded-lg overflow-hidden relative">
-                                        <Image src={post.image} alt={post.title} fill className="object-cover" />
+                                        <Image
+                                            src={post.image}
+                                            alt={post.title}
+                                            fill
+                                            className="object-cover"
+                                            placeholder="blur"
+                                            blurDataURL={BLUR_DATA_URL}
+                                            sizes="(min-width: 1024px) 420px, 90vw"
+                                        />
                                     </div>
 
                                     {/* Date */}

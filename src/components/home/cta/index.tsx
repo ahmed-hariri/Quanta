@@ -5,6 +5,9 @@ import { FaCheck, FaShield } from "react-icons/fa6";
 import LinkButton from "@/components/shared/link-button";
 import Image from "next/image";
 
+const BLUR_DATA_URL =
+    "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+
 export default function CTA() {
     const features = [
         "Simple subscriptions",
@@ -22,6 +25,9 @@ export default function CTA() {
                     fill
                     className="object-cover"
                     priority
+                    placeholder="blur"
+                    blurDataURL={BLUR_DATA_URL}
+                    sizes="100vw"
                 />
 
                 {/* Main Content */}

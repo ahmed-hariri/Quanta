@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
+const BLUR_DATA_URL =
+    "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+
 export default function Benefits() {
     const [isHover, setIsHover] = useState<null | number>(0);
 
@@ -47,6 +50,9 @@ export default function Benefits() {
                                         width={500}
                                         height={488}
                                         className={`${isHover !== index && "lg:grayscale"} w-full h-full duration-500 object-cover absolute -z-10 scale-125`}
+                                        placeholder="blur"
+                                        blurDataURL={BLUR_DATA_URL}
+                                        loading="lazy"
                                     />
                                     <div className={`w-full h-full flex flex-col justify-end  ${isHover === index ? "gap-3" : "gap-5"} duration-500 bg-gradient-to-b from-[#0505053b] to-[#050505]/100 z-20 p-9`}>
                                         <h1 className="text-[#d9d9d9] text-[32px] uppercase w-[220px] font-semibold leading-9">
