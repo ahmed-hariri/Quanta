@@ -138,7 +138,7 @@ export default function Services() {
                 <Link
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    href="#"
+                    href="/coming-soon"
                     className="w-fit flex items-center gap-[12px] text-[#ff6200] text-2xl mt-10 lg:mt-0">
                     <div className="w-[25px] h-[25px] relative overflow-hidden">
 

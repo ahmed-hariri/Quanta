@@ -10,7 +10,7 @@ interface LenisProviderProps {
 export default function LenisProvider({ children }: LenisProviderProps) {
     useEffect(() => {
         const lenis = new Lenis({
-            lerp: 0.1,
+            lerp: 0.12, // Moins smooth mais toujours agréable (0.1-0.15 = smooth modéré)
         });
 
         function raf(time: number) {

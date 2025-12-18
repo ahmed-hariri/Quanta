@@ -8,17 +8,17 @@ export default function Footer() {
     const [email, setEmail] = useState("");
 
     const navigationLinks = [
-        { name: "Works", href: "#works" },
-        { name: "Blogs", href: "#blogs" },
-        { name: "About", href: "#about" },
-        { name: "Contact", href: "#contact" }
+        { name: "Works", href: "/coming-soon" },
+        { name: "Blogs", href: "/coming-soon" },
+        { name: "About", href: "/coming-soon" },
+        { name: "Contact", href: "/coming-soon" }
     ];
 
     const socialLinks = [
-        { name: "Twitter", href: "#" },
-        { name: "Instagram", href: "#" },
-        { name: "Behance", href: "#" },
-        { name: "Dribble", href: "#" }
+        { name: "Twitter", href: "/coming-soon" },
+        { name: "Instagram", href: "/coming-soon" },
+        { name: "Behance", href: "/coming-soon" },
+        { name: "Dribble", href: "/coming-soon" }
     ];
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -156,13 +156,13 @@ export default function Footer() {
                         </motion.p>
                         <div className="hidden lg:flex items-center gap-6">
                             <Link
-                                href="#privacy"
+                                href="/coming-soon"
                                 className="hover:text-white transition-colors duration-300"
                             >
                                 Privacy Policy
                             </Link>
                             <Link
-                                href="#terms"
+                                href="/coming-soon"
                                 className="hover:text-white transition-colors duration-300"
                             >
                                 Terms of Service

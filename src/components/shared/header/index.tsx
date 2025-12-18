@@ -52,6 +52,11 @@ export default function Header() {
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
+    // Fonction pour fermer le menu quand on clique sur un lien
+    const handleLinkClick = () => {
+        setMenuStatus(false)
+    }
+
     return (
         <header
             className={`w-full px-6 sm:px-11 pt-1 sm:pt-4 flex flex-col duration-300 z-50
@@ -59,7 +64,11 @@ export default function Header() {
         >
             {/* Top */}
             <ul className="flex justify-between items-center text-[17.5px] py-5 uppercase">
-                <li><h1>Quanta®</h1></li>
+                <li>
+                    <Link href="/">
+                        <h1>Quanta®</h1>
+                    </Link>
+                </li>
                 <li className="flex items-center gap-3 sm:gap-5">
                     <h1>Menu</h1>
                     <div
@@ -94,11 +103,11 @@ export default function Header() {
                             className="w-full h-full flex lg:hidden flex-col justify-end items-end gap-4 text-[25px] uppercase"
                         >
                             {[
-                                { name: "About", url: "#" },
-                                { name: "Blogs", url: "#" },
-                                { name: "Works", url: "#" },
-                                { name: "Contact", url: "#" },
-                                { name: "Pricing", url: "#" },
+                                { name: "About", url: "/coming-soon" },
+                                { name: "Blogs", url: "/coming-soon" },
+                                { name: "Works", url: "/coming-soon" },
+                                { name: "Contact", url: "/coming-soon" },
+                                { name: "Pricing", url: "/coming-soon" },
                             ].map((link, index) => (
                                 <motion.li
                                     key={index}
@@ -106,7 +115,7 @@ export default function Header() {
                                     onMouseEnter={() => setIsHovered(index)}
                                     onMouseLeave={() => setIsHovered(null)}
                                 >
-                                    <Link href={link.url}>
+                                    <Link href={link.url} onClick={handleLinkClick}>
                                         {link.name}
                                     </Link>
                                 </motion.li>
@@ -142,16 +151,16 @@ export default function Header() {
                             className="w-full lg:w-1/3 h-full flex lg:justify-center items-end gap-[5.5px] pb-3"
                         >
                             {[
-                                { icon: IoLogoInstagram, link: "#" },
-                                { icon: BsTwitterX, link: "#" },
-                                { icon: FaThreads, link: "#" },
+                                { icon: IoLogoInstagram, link: "/coming-soon" },
+                                { icon: BsTwitterX, link: "/coming-soon" },
+                                { icon: FaThreads, link: "/coming-soon" },
                             ].map((link, index) => (
                                 <motion.div
                                     key={index}
                                     variants={socialItem}
                                     className="p-[7px] text-[#ff6200] bg-white rounded-full text-[17px]"
                                 >
-                                    <Link href={link.link}><link.icon /></Link>
+                                    <Link href={link.link} onClick={handleLinkClick}><link.icon /></Link>
                                 </motion.div>
                             ))}
                         </motion.div>
@@ -164,11 +173,11 @@ export default function Header() {
                             className="w-1/3 h-full lg:flex flex-col justify-end items-end gap-6 text-3xl uppercase pb-3 hidden"
                         >
                             {[
-                                { name: "Works", url: "#" },
-                                { name: "Blogs", url: "#" },
-                                { name: "About", url: "#" },
-                                { name: "Contact", url: "#" },
-                                { name: "Pricing", url: "#" },
+                                { name: "Works", url: "/coming-soon" },
+                                { name: "Blogs", url: "/coming-soon" },
+                                { name: "About", url: "/coming-soon" },
+                                { name: "Contact", url: "/coming-soon" },
+                                { name: "Pricing", url: "/coming-soon" },
                             ].map((link, index) => (
                                 <motion.li
                                     key={index}
@@ -176,7 +185,7 @@ export default function Header() {
                                     onMouseEnter={() => setIsHovered(index)}
                                     onMouseLeave={() => setIsHovered(null)}
                                 >
-                                    <Link href={link.url} className="flex items-center gap-[8px]">
+                                    <Link href={link.url} onClick={handleLinkClick} className="flex items-center gap-[8px]">
                                         <span>{link.name}</span>
                                         <div className="w-[25px] h-[25px] relative overflow-hidden">
                                             {/* Arrows */}

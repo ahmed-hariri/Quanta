@@ -18,7 +18,7 @@ export default function LinkButton({ marginTop = false , text = "Get started" }:
             className={`${marginTop && "mt-4 lg:mt-8"}`}
         >
             <Link
-                href="#"
+                href="/coming-soon"
                 style={{
                     boxShadow:
                         "rgba(255, 98, 0, 0.73) 0px 0.557px 0.557px -0.9375px,\

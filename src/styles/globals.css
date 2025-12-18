@@ -149,3 +149,16 @@
     @apply bg-background text-foreground;
     }
 }
+
+/* Animation delay utilities for coming soon page */
+@layer utilities {
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
+}
