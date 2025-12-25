@@ -3,7 +3,7 @@ import BlurText from "@/components/shared/blur-text";
 export default function Banner2() {
     return (
         <section
-            className="min-h-[500px] lg:h-[1010px] xl:max-h-[1100px] px-8 xl:px-0 mt-32 flex justify-center relative bg-gradient-to-b from-[#05050555] to-[#000000]/50 lg:to-[#000000]">
+            className="min-h-[500px] lg:h-[1010px] xl:max-h-[1100px] px-8 xl:px-0 my-4 lg:mt-32 flex justify-center relative bg-gradient-to-b from-[#05050555] to-[#000000]/50 lg:to-[#000000]">
             <div className="w-full h-full lg:flex absolute -z-10 bg-cover bg-center bg-fixed hidden">
                 {Array.from({ length: 3 }).map((_, i) => {
                     return (

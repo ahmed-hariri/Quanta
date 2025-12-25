@@ -51,7 +51,7 @@ export default function Process() {
                     </div>
                 </div>
             </div>
-            <div className="w-full xl:w-[68%] h-full flex flex-col relative mt-24 lg:mt-0 lg:shadow-[-80px_-120px_130px_#ffff]">
+            <div className="w-full xl:w-[68%] h-full flex flex-col relative lg:shadow-[-80px_-120px_130px_#ffff]">
                 {steps.map((step, index) => (
                     <div
                         key={index}

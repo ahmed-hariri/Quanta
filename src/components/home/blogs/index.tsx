@@ -37,7 +37,7 @@ export default function Blogs() {
     ];
 
     return (
-        <section className="px-4 xl:px-0 flex justify-center my-10">
+        <section className="px-4 xl:px-0 flex justify-center my-4 lg:my-10">
             <div className="w-full lg:max-w-[1200px] flex flex-col items-center gap-7">
                 <SectionTitle title="Blogs" showYear={false} />
 

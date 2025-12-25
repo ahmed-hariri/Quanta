@@ -45,7 +45,7 @@ export default function Services() {
 
     return (
         <section
-            className="w-full relative h-full flex items-center py-10 lg:py-[100px] px-2 lg:px-10"
+            className="w-full relative h-full flex items-center my-4 lg:my-0 py-10 lg:py-[100px] px-2 lg:px-10"
             style={{
                 backgroundImage: `url(/services/back-ground.jpg)`,
                 backgroundSize: 'cover',

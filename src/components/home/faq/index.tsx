@@ -41,7 +41,7 @@ export default function FAQ() {
     };
 
     return (
-        <section className="px-4 xl:px-0 flex justify-center my-40">
+        <section className="px-4 xl:px-0 flex justify-center my-4 lg:my-40">
             <div className="w-full lg:max-w-[1300px] flex flex-col items-center gap-7">
                 <SectionTitle title="Faq" showYear={false} />
 

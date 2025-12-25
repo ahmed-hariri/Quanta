@@ -16,7 +16,7 @@ export default function CTA() {
     ];
 
     return (
-        <section className="w-full relative overflow-hidden mt-28">
+        <section className="w-full relative overflow-hidden my-4 lg:mt-28">
             {/* Background Image */}
             <div className="relative w-full min-h-screen lg:min-h-[1000px]">
                 <Image

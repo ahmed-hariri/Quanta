@@ -17,7 +17,7 @@ export default function Benefits() {
 
     return (
         <>
-            <section className="px-4 xl:px-0 flex justify-center mt-20">
+            <section className="px-4 xl:px-0 flex justify-center my-4 lg:mt-20">
                 <div className="w-full lg:max-w-[1220px] flex flex-col gap-7">
                     <SectionTitle title="Benefits" showYear={true} />
 

@@ -4,7 +4,7 @@ export default function Banner() {
     return (
         <section
             style={{ background: 'linear-gradient(180deg, #fff0, #fff3 39.01%, #ffffff80 60.87%, #ffffffd4 80%, #fff)' }}
-            className="min-h-[500px] lg:min-h-[800px] px-8 xl:px-0 mt-32 flex justify-center relative">
+            className="min-h-[500px] lg:min-h-[800px] px-8 xl:px-0 my-4 lg:mt-32 flex justify-center relative">
             <div
                 style={{ backgroundImage: `url(background-of-banner.avif)` }}
                 className="w-full h-full absolute -z-10 bg-cover bg-center bg-fixed"></div>

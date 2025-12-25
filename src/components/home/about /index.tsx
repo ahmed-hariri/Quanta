@@ -9,7 +9,7 @@ const BLUR_DATA_URL =
 export default function About() {
     return (
         <>
-            <section className="px-4 xl:px-0 flex justify-center my-20">
+            <section className="px-4 xl:px-0 flex justify-center my-4 lg:my-20">
                 <div className="w-full lg:max-w-[1350px] flex flex-col gap-16">
                     <SectionTitle title="About" showYear={true} />
 
