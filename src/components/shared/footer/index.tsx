@@ -1,32 +1,44 @@
 "use client";
 
+import { useMemo, useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Link from "next/link";
+
+// Constants
+const NAVIGATION_LINKS = [
+    { name: "Works", href: "/coming-soon" },
+    { name: "Blogs", href: "/coming-soon" },
+    { name: "About", href: "/coming-soon" },
+    { name: "Contact", href: "/coming-soon" },
+] as const;
+
+const SOCIAL_LINKS = [
+    { name: "Twitter", href: "/coming-soon" },
+    { name: "Instagram", href: "/coming-soon" },
+    { name: "Behance", href: "/coming-soon" },
+    { name: "Dribble", href: "/coming-soon" },
+] as const;
+
+const CONTACT_EMAIL = "reachus@quanta.com";
+const CURRENT_YEAR = 2025;
 
 export default function Footer() {
     const [email, setEmail] = useState("");
 
-    const navigationLinks = [
-        { name: "Works", href: "/coming-soon" },
-        { name: "Blogs", href: "/coming-soon" },
-        { name: "About", href: "/coming-soon" },
-        { name: "Contact", href: "/coming-soon" }
-    ];
+    // Memoize links to prevent recreation on each render
+    const navigationLinks = useMemo(() => NAVIGATION_LINKS, []);
+    const socialLinks = useMemo(() => SOCIAL_LINKS, []);
 
-    const socialLinks = [
-        { name: "Twitter", href: "/coming-soon" },
-        { name: "Instagram", href: "/coming-soon" },
-        { name: "Behance", href: "/coming-soon" },
-        { name: "Dribble", href: "/coming-soon" }
-    ];
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle newsletter subscription
-        console.log("Newsletter subscription:", email);
-        setEmail("");
-    };
+    // Handle newsletter subscription
+    const handleSubmit = useCallback(
+        (e: React.FormEvent) => {
+            e.preventDefault();
+            // TODO: Implement newsletter subscription API call
+            console.log("Newsletter subscription:", email);
+            setEmail("");
+        },
+        [email]
+    );
 
     return (
         <footer className="w-full px-6 lg:px-0 pt-[70px] lg:pt-32 pb-10 flex justify-center items-center bg-black text-white">
@@ -60,10 +72,10 @@ export default function Footer() {
                     >
                         <p className="text-[#666] text-sm lg:text-base">Contact us through E-mail</p>
                         <a
-                            href="mailto:reachus@quanta.com"
+                            href={`mailto:${CONTACT_EMAIL}`}
                             className="text-3xl lg:text-4xl font-bold hover:text-[#ff6200] transition-colors duration-300"
                         >
-                            reachus@quanta.com
+                            {CONTACT_EMAIL}
                         </a>
                     </motion.div>
                 </div>
@@ -152,7 +164,7 @@ export default function Footer() {
                             transition={{ duration: 0.5, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.8 }}
                         >
-                            QUANTA® ©2025 All rights reserved
+                            QUANTA® ©{CURRENT_YEAR} All rights reserved
                         </motion.p>
                         <div className="hidden lg:flex items-center gap-6">
                             <Link

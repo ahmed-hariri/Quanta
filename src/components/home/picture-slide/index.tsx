@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { logos } from "@/data/picture-slide";
 
 export default function SlideSection() {
-    const logos = ["1.svg", "2.svg", "3.svg", "4.svg", "5.svg"];
 
     return (
         <section className="w-full flex justify-center items-center mt-10 overflow-hidden">

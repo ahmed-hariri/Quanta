@@ -2,18 +2,12 @@ import SectionTitle from "@/components/shared/top-bar";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { benefitCards } from "@/data/benefits";
 
-const BLUR_DATA_URL =
-    "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+const BLUR_DATA_URL = "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
 
 export default function Benefits() {
     const [isHover, setIsHover] = useState<null | number>(0);
-
-    const cards: { title: string, description: string }[] = [
-        { title: "Holistic expertise", description: "We bring a multidisciplinary approach to design, ensuring every project benefits from our broad expertise" },
-        { title: "Selective Partnerships", description: "We collaborate with a limited number of clients to provide dedicated focus and top-tier quality" },
-        { title: "Attention to detail", description: "From concept to execution, we meticulously refine every element to create seamless user experiences" }
-    ]
 
     return (
         <>
@@ -38,7 +32,7 @@ export default function Benefits() {
                         </motion.div>
 
                         <div className="flex justify-center lg:items-center flex-col lg:flex-row gap-5 lg:gap-3">
-                            {cards.map((item, index) => (
+                            {benefitCards.map((item, index) => (
                                 <div
                                     onMouseEnter={() => setIsHover(index)}
                                     onMouseLeave={() => setIsHover(0)}

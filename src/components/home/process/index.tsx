@@ -1,32 +1,7 @@
 import SectionTitle from "@/components/shared/top-bar";
+import { processSteps } from "@/data/process";
 
 export default function Process() {
-    const steps: { number: number, title: string, description: string, content: string }[] = [
-        {
-            number: 1,
-            title: "PROJECT KICKOFF",
-            description: "We begin by understanding your vision, goals, and audience, setting a strong foundation for a successful collaboration.",
-            content: "Setting the Foundation for Success"
-        },
-        {
-            number: 2,
-            title: "DESIGN PHASE",
-            description: "We bring your ideas to life with a design that’s visually stunning, user-friendly, and aligned with your brand identity.",
-            content: "Visualizing Your Digital Identity"
-        },
-        {
-            number: 3,
-            title: "ITERATION",
-            description: "We polish every detail through feedback and iteration, ensuring your website is intuitive, functional, and perfectly crafted.",
-            content: "Fine-Tuning for Excellence"
-        },
-        {
-            number: 4,
-            title: "Go live",
-            description: "With everything optimized, we launch your website to deliver a powerful and lasting impression on your audience.",
-            content: "Delivering Your Vision to the World"
-        }
-    ]
 
     return <>
         <section
@@ -52,7 +27,7 @@ export default function Process() {
                 </div>
             </div>
             <div className="w-full xl:w-[68%] h-full flex flex-col relative lg:shadow-[-80px_-120px_130px_#ffff]">
-                {steps.map((step, index) => (
+                {processSteps.map((step, index) => (
                     <div
                         key={index}
                         className={`w-full xl:h-[555px] ${index % 2 === 0 ? 'bg-[#f7f7f7]' : 'bg-white'} p-2 rounded-[30px] sticky -mt-[10px] top-0`}>

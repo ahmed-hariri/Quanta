@@ -1,61 +1,99 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 import Link from "next/link";
 import { IoLogoInstagram } from "react-icons/io5";
 import { BsTwitterX } from "react-icons/bs";
-import { FaThreads } from "react-icons/fa6";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { easeOut } from "framer-motion";
+import { FaThreads, FaArrowRightLong } from "react-icons/fa6";
+
+// Constants
+const ANIMATION_DURATION = 0.2;
+const DESKTOP_BREAKPOINT = 1024;
+
+// Navigation links data
+const NAVIGATION_LINKS = [
+    { name: "About", url: "/coming-soon" },
+    { name: "Blogs", url: "/coming-soon" },
+    { name: "Works", url: "/coming-soon" },
+    { name: "Contact", url: "/coming-soon" },
+    { name: "Pricing", url: "/coming-soon" },
+];
+
+// Social media links data
+const SOCIAL_LINKS = [
+    { icon: IoLogoInstagram, link: "/coming-soon" },
+    { icon: BsTwitterX, link: "/coming-soon" },
+    { icon: FaThreads, link: "/coming-soon" },
+];
 
 export default function Header() {
     const [menuStatus, setMenuStatus] = useState(false);
     const [isHovered, setIsHovered] = useState<number | null>(null);
-    const [isDesktop, setIsDesktop] = useState(false)
-    const time: number = 0.2
+    const [isDesktop, setIsDesktop] = useState(false);
 
-    // Number simple animation
-    const numberVariant = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0, transition: { duration: time, ease: easeOut } },
-    };
+    // Animation variants - memoized to prevent recreation on each render
+    const numberVariant = useMemo(
+        () => ({
+            hidden: { opacity: 0, y: 20 },
+            show: { opacity: 1, y: 0, transition: { duration: ANIMATION_DURATION, ease: easeOut } },
+        }),
+        []
+    );
 
-    // Links: left → right stagger
-    const linksContainer = {
-        hidden: {},
-        show: {
-            transition: { staggerChildren: 0.2, delayChildren: 0.3 },
-        },
-    };
-    const linkItem = {
-        hidden: { opacity: 0, x: -40 },
-        show: { opacity: 1, x: 0, transition: { duration: time, ease: easeOut } },
-    };
+    const linksContainer = useMemo(
+        () => ({
+            hidden: {},
+            show: {
+                transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+            },
+        }),
+        []
+    );
 
-    // Socials: bottom → top stagger
-    const socialContainer = {
-        hidden: {},
-        show: {
-            transition: { staggerChildren: 0.2, delayChildren: 0.3 },
-        },
-    };
-    const socialItem = {
-        hidden: { opacity: 0, y: 40 },
-        show: { opacity: 1, y: 0, transition: { duration: time, ease: easeOut } },
-    };
+    const linkItem = useMemo(
+        () => ({
+            hidden: { opacity: 0, x: -40 },
+            show: { opacity: 1, x: 0, transition: { duration: ANIMATION_DURATION, ease: easeOut } },
+        }),
+        []
+    );
 
+    const socialContainer = useMemo(
+        () => ({
+            hidden: {},
+            show: {
+                transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+            },
+        }),
+        []
+    );
+
+    const socialItem = useMemo(
+        () => ({
+            hidden: { opacity: 0, y: 40 },
+            show: { opacity: 1, y: 0, transition: { duration: ANIMATION_DURATION, ease: easeOut } },
+        }),
+        []
+    );
+
+    // Handle window resize for desktop detection
     useEffect(() => {
-        const handleResize = () => setIsDesktop(window.innerWidth >= 1024)
-        handleResize()
-        window.addEventListener("resize", handleResize)
-        return () => window.removeEventListener("resize", handleResize)
-    }, [])
+        const handleResize = () => setIsDesktop(window.innerWidth >= DESKTOP_BREAKPOINT);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
-    // Fonction pour fermer le menu quand on clique sur un lien
-    const handleLinkClick = () => {
-        setMenuStatus(false)
-    }
+    // Close menu when link is clicked - memoized to prevent recreation
+    const handleLinkClick = useCallback(() => {
+        setMenuStatus(false);
+    }, []);
+
+    // Toggle menu status - memoized
+    const toggleMenu = useCallback(() => {
+        setMenuStatus((prev) => !prev);
+    }, []);
 
     return (
         <header
@@ -73,7 +111,7 @@ export default function Header() {
                     <h1>Menu</h1>
                     <div
                         className="w-full h-5 flex flex-col justify-center gap-[10px] cursor-pointer"
-                        onClick={() => setMenuStatus(!menuStatus)}
+                        onClick={toggleMenu}
                     >
                         <div className={`w-9 sm:w-13 h-[2px] duration-300 ease-linear
                ${menuStatus ? "rotate-[20deg] bg-white" : "bg-[#ff6200]"}`}></div>
@@ -92,23 +130,17 @@ export default function Header() {
                             opacity: 1,
                         }}
                         exit={{ height: 80, opacity: 0 }}
-                        transition={{ duration: time, ease: "easeInOut" }}
+                        transition={{ duration: ANIMATION_DURATION, ease: "easeInOut" }}
                         className="w-full flex flex-col lg:flex-row gap-8 rounded-xl py-6 overflow-hidden"
                     >
-                        {/* Links */}
+                        {/* Mobile Navigation Links */}
                         <motion.ul
                             variants={linksContainer}
                             initial="hidden"
                             animate="show"
                             className="w-full h-full flex lg:hidden flex-col justify-end items-end gap-4 text-[25px] uppercase"
                         >
-                            {[
-                                { name: "About", url: "/coming-soon" },
-                                { name: "Blogs", url: "/coming-soon" },
-                                { name: "Works", url: "/coming-soon" },
-                                { name: "Contact", url: "/coming-soon" },
-                                { name: "Pricing", url: "/coming-soon" },
-                            ].map((link, index) => (
+                            {NAVIGATION_LINKS.map((link, index) => (
                                 <motion.li
                                     key={index}
                                     variants={linkItem}
@@ -122,7 +154,7 @@ export default function Header() {
                             ))}
                         </motion.ul>
 
-                        {/* Number */}
+                        {/* Contact Information */}
                         <motion.div
                             variants={numberVariant}
                             initial="hidden"
@@ -134,27 +166,20 @@ export default function Header() {
                                 className="text-3xl"
                                 initial={{ opacity: 0, x: -130 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    duration: 0.6,
-                                    ease: ["easeOut"],
-                                }}
+                                transition={{ duration: 0.6, ease: ["easeOut"] }}
                             >
                                 +1 718-555-6789
                             </motion.h1>
                         </motion.div>
 
-                        {/* Social media */}
+                        {/* Social Media Links */}
                         <motion.div
                             variants={socialContainer}
                             initial="hidden"
                             animate="show"
                             className="w-full lg:w-1/3 h-full flex lg:justify-center items-end gap-[5.5px] pb-3"
                         >
-                            {[
-                                { icon: IoLogoInstagram, link: "/coming-soon" },
-                                { icon: BsTwitterX, link: "/coming-soon" },
-                                { icon: FaThreads, link: "/coming-soon" },
-                            ].map((link, index) => (
+                            {SOCIAL_LINKS.map((link, index) => (
                                 <motion.div
                                     key={index}
                                     variants={socialItem}
@@ -165,20 +190,14 @@ export default function Header() {
                             ))}
                         </motion.div>
 
-                        {/* Links */}
+                        {/* Desktop Navigation Links */}
                         <motion.ul
                             variants={linksContainer}
                             initial="hidden"
                             animate="show"
                             className="w-1/3 h-full lg:flex flex-col justify-end items-end gap-6 text-3xl uppercase pb-3 hidden"
                         >
-                            {[
-                                { name: "Works", url: "/coming-soon" },
-                                { name: "Blogs", url: "/coming-soon" },
-                                { name: "About", url: "/coming-soon" },
-                                { name: "Contact", url: "/coming-soon" },
-                                { name: "Pricing", url: "/coming-soon" },
-                            ].map((link, index) => (
+                            {NAVIGATION_LINKS.map((link, index) => (
                                 <motion.li
                                     key={index}
                                     variants={linkItem}
@@ -188,7 +207,7 @@ export default function Header() {
                                     <Link href={link.url} onClick={handleLinkClick} className="flex items-center gap-[8px]">
                                         <span>{link.name}</span>
                                         <div className="w-[25px] h-[25px] relative overflow-hidden">
-                                            {/* Arrows */}
+                                            {/* Animated Arrow - Outgoing */}
                                             <motion.div
                                                 className="absolute top-0 left-0"
                                                 animate={{
@@ -199,6 +218,7 @@ export default function Header() {
                                             >
                                                 <FaArrowRightLong className="text-[28px] rotate-[-45deg]" />
                                             </motion.div>
+                                            {/* Animated Arrow - Incoming */}
                                             <motion.div
                                                 className="absolute top-[100%] left-[-100%]"
                                                 animate={{

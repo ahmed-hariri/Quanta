@@ -1,43 +1,59 @@
 "use client";
 
-import Achievements from "@/components/home/achievements";
-import AnimatedCards from "@/components/home/animated-cards";
-import Banner from "@/components/home/banner";
-import Banner2 from "@/components/home/banner-2";
-import Benefits from "@/components/home/benefits";
+import dynamic from "next/dynamic";
 import Hero from "@/components/home/hero";
-import SlideSection from "@/components/home/picture-slide";
-import Projects from "@/components/home/projects";
-import Process from "@/components/home/process";
-import Services from "@/components/home/services";
-import Testimonials from "@/components/home/testimonials";
-import About from "@/components/home/about ";
-import Pricing from "@/components/home/pricing";
-import FAQ from "@/components/home/faq";
-import Blogs from "@/components/home/blogs";
-import CTA from "@/components/home/cta";
 
+// Lazy load components below the fold for better initial page load performance
+const SlideSection = dynamic(() => import("@/components/home/picture-slide"), {
+    loading: () => <div className="h-20" />,
+});
+const AnimatedCards = dynamic(() => import("@/components/home/animated-cards"), {
+    loading: () => <div className="h-96" />,
+});
+const Achievements = dynamic(() => import("@/components/home/achievements"));
+const Banner = dynamic(() => import("@/components/home/banner"));
+const Benefits = dynamic(() => import("@/components/home/benefits"));
+const Projects = dynamic(() => import("@/components/home/projects"));
+const Banner2 = dynamic(() => import("@/components/home/banner-2"));
+const Process = dynamic(() => import("@/components/home/process"));
+const Testimonials = dynamic(() => import("@/components/home/testimonials"));
+const Services = dynamic(() => import("@/components/home/services"));
+const About = dynamic(() => import("@/components/home/about "));
+const Pricing = dynamic(() => import("@/components/home/pricing"));
+const FAQ = dynamic(() => import("@/components/home/faq"));
+const Blogs = dynamic(() => import("@/components/home/blogs"));
+const CTA = dynamic(() => import("@/components/home/cta"));
+
+/**
+ * Home Page Component
+ * Main landing page with all sections displayed in order
+ */
 export default function Home() {
-  return <>
-    <div className="overflow-hidden">
-      <Hero />
-      <SlideSection />
-      <AnimatedCards />
-      <Achievements />
-      <Banner />
-      <Benefits />
-    </div>
-    <Projects />
-    <Banner2 />
-    <div className="relative">
-      <Process />
-      <Testimonials />
-    </div>
-    <Services />
-    <About />
-    <Pricing />
-    <FAQ />
-    <Blogs />
-    <CTA />
-  </>
+    return (
+        <>
+            {/* Above the fold sections - loaded immediately */}
+            <div className="overflow-hidden">
+                <Hero />
+                <SlideSection />
+                <AnimatedCards />
+                <Achievements />
+                <Banner />
+                <Benefits />
+            </div>
+
+            {/* Below the fold sections - lazy loaded */}
+            <Projects />
+            <Banner2 />
+            <div className="relative">
+                <Process />
+                <Testimonials />
+            </div>
+            <Services />
+            <About />
+            <Pricing />
+            <FAQ />
+            <Blogs />
+            <CTA />
+        </>
+    );
 }

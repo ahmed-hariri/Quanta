@@ -3,43 +3,16 @@
 import SectionTitle from "@/components/shared/top-bar";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { blogPosts } from "@/data/blogs";
 
-const BLUR_DATA_URL =
-    "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
-
-interface BlogPost {
-    id: number;
-    image: string;
-    date: string;
-    title: string;
-}
+const BLUR_DATA_URL = "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
 
 export default function Blogs() {
-    const blogPosts: BlogPost[] = [
-        {
-            id: 1,
-            image: "/blogs/blog-1.avif",
-            date: "Feb 28, 2024",
-            title: "The Importance of Mobile-First Design in 2025"
-        },
-        {
-            id: 2,
-            image: "/blogs/blog-2.avif",
-            date: "Jun 13, 2025",
-            title: "Maximizing Conversions with Simple Web Design"
-        },
-        {
-            id: 3,
-            image: "/blogs/blog-3.avif",
-            date: "Feb 13, 2023",
-            title: "How to Choose the Color Scheme for Your Website"
-        }
-    ];
 
     return (
         <section className="px-4 xl:px-0 flex justify-center my-4 lg:my-10">
             <div className="w-full lg:max-w-[1200px] flex flex-col items-center gap-7">
-                <SectionTitle title="Blogs" showYear={false} />
+                <SectionTitle title="Blogs" showYear={false} centerTitle={true} />
 
                 <div className="flex flex-col items-center text-center gap-[50px] lg:gap-[120px] font-semibold">
                     {/* Title Section */}

@@ -3,21 +3,15 @@ import SectionTitle from "@/components/shared/top-bar";
 import { motion } from "framer-motion";
 import SlideSection from "../picture-slide";
 import { useState } from "react";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
     const [isHover, setIsHover] = useState<null | number>(null);
-
-    const projects: { title: string, description: string }[] = [
-        { title: "APEX STUDIO SITE®", description: "Redesigned Apex Studio’s website with a cleaner layout—resulting in a 45% increase in conversions" },
-        { title: "VISIONARY LABS™", description: "How Visionary Labs Built a Premium Brand Identity with Quanta" },
-        { title: "PIXEL FORGE™", description: "PixelForge’s Portfolio Makeover Boosted Client Inquiries by 60%" },
-        { title: "ELEVATE AGENCY®", description: "Elevate Agency Scaled Faster with a High-Impact Website" }
-    ]
     return (
         <>
             <section className="w-full h-full px-4 xl:px-0 flex justify-center my-4 lg:mt-52">
                 <div className="w-full lg:max-w-[1220px] flex flex-col gap-7">
-                    <SectionTitle title="Projects" showYear={false} />
+                    <SectionTitle title="Projects" showYear={false} centerTitle={true} />
 
                     <div className="flex flex-col items-center text-center gap-[50px] lg:gap-[120px] font-semibold">
                         <motion.div

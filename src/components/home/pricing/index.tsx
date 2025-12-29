@@ -4,73 +4,16 @@ import SectionTitle from "@/components/shared/top-bar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/shared/ui/card";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
-import { FaBolt } from "react-icons/fa6";
-import { FaGem } from "react-icons/fa6";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { FaFire } from "react-icons/fa6";
-
-interface PricingPlan {
-    name: string;
-    icon: React.ReactNode;
-    monthlyPrice: number;
-    annualPrice: number;
-    description: string;
-    features: string[];
-}
+import { FaArrowRightLong, FaFire } from "react-icons/fa6";
+import { plans } from "@/data/pricing";
 
 export default function Pricing() {
     const [isAnnual, setIsAnnual] = useState(false);
 
-    const plans: PricingPlan[] = [
-        {
-            name: "Standard",
-            icon: <FaStar className="w-3 h-3" />,
-            monthlyPrice: 1799,
-            annualPrice: 12959, // 1799 * 12 * 0.6 (40% discount for annual)
-            description: "For growing businesses needing more features and flexibility.",
-            features: [
-                "Custom-Designed Website.",
-                "Performance-Optimized Design",
-                "SEO-optimized foundation",
-                "Performance-tuned design",
-                "Essential social media integration"
-            ]
-        },
-        {
-            name: "Growth",
-            icon: <FaBolt className="w-3 h-3" />,
-            monthlyPrice: 2699,
-            annualPrice: 19433, // 2699 * 12 * 0.6
-            description: "For growing businesses needing more features and flexibility.",
-            features: [
-                "Up to 10 fully customized pages",
-                "Advanced SEO optimization.",
-                "Conversion-driven design approach",
-                "Integrated blog setup",
-                "Custom forms & automation"
-            ]
-        },
-        {
-            name: "Enterprise",
-            icon: <FaGem className="w-3 h-3" />,
-            monthlyPrice: 3699,
-            annualPrice: 26633, // 3699 * 12 * 0.6
-            description: "For growing businesses needing more features and flexibility.",
-            features: [
-                "Everything in the Growth Plan",
-                "Unlimited pages with customization.",
-                "E-commerce site integration",
-                "Custom animations, Interactions.",
-                "API & CRM integrations"
-            ]
-        }
-    ];
-
     return (
         <section className="px-4 xl:px-0 flex justify-center my-4 lg:my-40">
             <div className="w-full lg:max-w-[1300px] flex flex-col items-center gap-7">
-                <SectionTitle title="Pricing" showYear={false} />
+                <SectionTitle title="Pricing" showYear={false} centerTitle={true} />
 
                 <div className="flex flex-col items-center text-center gap-[50px] lg:gap-[120px] font-semibold">
                     <motion.div
@@ -153,7 +96,7 @@ export default function Pricing() {
                                 <Card className={`px-8 py-2 lg:py-4 h-full flex flex-col gap-6 lg:gap-7 ${index === 1 ? "border-[#ff6200]" : "border-gray-200"} transition-colors duration-500 shadow-lg hover:shadow-xl bg-white`}>
                                     <CardHeader className="flex flex-col items-center text-center">
                                         <div className={`w-fit flex justify-center items-center gap-[7px] mb-3 text-[13px] px-[14px] py-[11px] ${index === 1 ? "text-white rounded-full bg-[#ff6200]" : "text-[#ff6200]"}`}>
-                                            <span className="text-sm">{plan.icon}</span>
+                                            <span className="text-sm"><plan.iconComponent className="w-3 h-3" /></span>
                                             <CardTitle className="font-bold uppercase">
                                                 {plan.name}
                                             </CardTitle>

@@ -1,13 +1,9 @@
 import CountUp from "@/components/shared/count-up";
 import SectionTitle from "@/components/shared/top-bar";
 import { motion } from "framer-motion";
+import { achievements } from "@/data/achievements";
 
 export default function Achievements() {
-    const data: { info: number; title: string; subTitle: string }[] = [
-        { info: 8.9, title: "User reach rate", subTitle: "Empowering brands with, high-performing designs" },
-        { info: 65, title: "Projects completed", subTitle: "Empowering brands with, high-performing designs" },
-        { info: 78, title: "Client retention rate", subTitle: "Empowering brands with, high-performing designs" }
-    ];
 
     return (
         <>
@@ -32,7 +28,7 @@ export default function Achievements() {
                         </motion.div>
 
                         <div className="flex lg:items-center flex-col lg:flex-row gap-16 lg:gap-6">
-                            {data.map((item, index) => (
+                            {achievements.map((item, index) => (
                                 <div key={index} className="pl-4 border-l border-gray-100 lg:w-[1020px] overflow-hidden">
                                     <div className="flex flex-col gap-[30px]">
                                         <motion.h1

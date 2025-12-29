@@ -4,19 +4,14 @@ import { motion } from "framer-motion";
 import { FaCheck, FaShield } from "react-icons/fa6";
 import LinkButton from "@/components/shared/link-button";
 import Image from "next/image";
+import { ctaFeatures, ctaProfileImages } from "@/data/cta";
 
-const BLUR_DATA_URL =
-    "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
+const BLUR_DATA_URL = "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
 
 export default function CTA() {
-    const features = [
-        "Simple subscriptions",
-        "Effective results",
-        "24/7 support"
-    ];
 
     return (
-        <section className="w-full relative overflow-hidden my-4 lg:mt-28">
+        <section className="w-full relative overflow-hidden lg:mt-28">
             {/* Background Image */}
             <div className="relative w-full min-h-screen lg:min-h-[1000px]">
                 <Image
@@ -84,12 +79,7 @@ export default function CTA() {
                             <div className="flex items-end gap-3">
                                 {/* Avatar Stack */}
                                 <div className="flex items-center">
-                                    {[
-                                        "/profile-1.png",
-                                        "/profile-2.png",
-                                        "/profile-3.png",
-                                        "/profile-4.png"
-                                    ].map((pic, index) => (
+                                    {ctaProfileImages.map((pic, index) => (
                                         <div
                                             key={index}
                                             className={`w-[37px] h-[37px] rounded-full border-2 border-white ${index !== 0 && "-ml-4"}`}
@@ -111,7 +101,7 @@ export default function CTA() {
                             viewport={{ once: true, amount: 0.8 }}
                             className="flex flex-col gap-2 mt-5 lg:mt-0"
                         >
-                            {features.map((feature, index) => (
+                            {ctaFeatures.map((feature, index) => (
                                 <div key={index} className="flex items-center gap-2">
                                     <div className="bg-[#ff6200] rounded-full p-[3px]">
                                         <FaCheck className="w-3 h-3 text-white flex-shrink-0" />
