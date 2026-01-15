@@ -35,14 +35,8 @@ const availableImages = [
     "/process/process-4.avif",
 ];
 
-// Function to get random images
-const getRandomImages = (count: number): string[] => {
-    const shuffled = [...availableImages].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, count);
-};
-
-// Get random images for testimonials
-const testimonialImages = getRandomImages(5);
+// Use a deterministic slice to avoid SSR/CSR mismatches.
+const testimonialImages = availableImages.slice(0, 5);
 
 export const testimonials: Testimonial[] = [
     {

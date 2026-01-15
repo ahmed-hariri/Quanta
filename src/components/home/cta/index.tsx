@@ -39,7 +39,7 @@ export default function CTA() {
                             <h1 className="text-[50px] lg:text-[66px] leading-12 lg:leading-16">
                                 LET&apos;S BUILD SOMETHING
                             </h1>
-                            <h1 className="text-[90px] lg:text-[130px] leading-24 lg:leading-32">
+                            <h1 className="text-7xl lg:text-[130px] leading-16 lg:leading-32">
                                 EXTRA ORDINARY
                             </h1>
                         </motion.div>

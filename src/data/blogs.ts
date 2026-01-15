@@ -33,14 +33,8 @@ const availableBlogImages = [
     "/process/process-4.avif",
 ];
 
-// Function to get random images for blogs
-const getRandomBlogImages = (count: number): string[] => {
-    const shuffled = [...availableBlogImages].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, count);
-};
-
-// Get random images for blog posts
-const blogImages = getRandomBlogImages(3);
+// Use a deterministic slice to avoid SSR/CSR mismatches.
+const blogImages = availableBlogImages.slice(0, 3);
 
 export const blogPosts: BlogPost[] = [
     {
